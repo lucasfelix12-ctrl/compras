@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Lista de compras</title>
+	<style>
+		h1 {
+			color: red;
+		}
+	</style>
+</head>
+<body>
+	<h1>Minha lista de compras</h1>
+	<form onsubmit="addItem(); return false;">
+		<label for="item">Item:</label>
+		<input type="text" id="item" name="item"><br><br>
+		<label for="quantidade">Quantidade:</label>
+		<input type="number" id="quantidade"><br><br>
+		<button type="submit">Adicionar</button>
+	</form>
+	<ul id="lista">
+	</ul>
+	<script>
+		function addItem() {
+			// Obter os valores dos campos do formulário
+			var item = document.getElementById("item").value;
+			var quantidade = document.getElementById("quantidade").value;
+			
+			// Criar um novo item da lista
+			var novoItem = document.createElement("li");
+			var textoItem = document.createTextNode(item + " - " + quantidade);
+			novoItem.appendChild(textoItem);
+			
+			// Adicionar o novo item à lista
+			document.getElementById("lista").appendChild(novoItem);
+			
+			// Limpar os campos do formulário
+			document.getElementById("item").value = "";
+			document.getElementById("quantidade").value = "";
+		}
+	</script>
+</body>
+</html>
